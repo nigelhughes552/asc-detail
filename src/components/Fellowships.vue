@@ -1,8 +1,14 @@
 <template>
-  <h1>Fellowships</h1>
+<div>
+
+ <h3>Fellowships</h3>
+  
+
+</div>
+ 
 </template>
 <script>
 export default {
-  name: 'Fellowships'
-}
+  name: "Fellowships"
+};
 </script>

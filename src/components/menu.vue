@@ -2,13 +2,18 @@
 
   <div class="col-md-2">
 
-        <nav>
-  
-     
 
-      </nav>
+
+<b-list-group>
+  <b-list-group-item  href="#"><router-link to="/PersonDetails">Detail</router-link></b-list-group-item>
+  <b-list-group-item  href="#" ><router-link to="/Fellowships">Fellowships</router-link></b-list-group-item>
+  <b-list-group-item  href="#"><router-link to="/Responsibilities">Responsibilities</router-link></b-list-group-item>
+
+</b-list-group>
+<!--
             <ul class="nav nav-pills nav-stacked" id="navTabs" role="tablist">
-                <li role="presentation"><router-link to="/">Fellowships</router-link></li>
+                 <li role="presentation"><router-link to="/PersonDetails">Detail</router-link></li>
+                <li role="presentation"><router-link to="/Fellowships">Fellowships</router-link></li>
                 <li role="presentation">   <router-link to="/Responsibilities">Responsibilities</router-link></li>
                 <li role="presentation"><a href="#appointment-container" aria-controls="appointment-container" role="tab" data-toggle="tab">Appointments</a></li>
                 <li role="presentation"><a href="#room-container" aria-controls="room-container" role="tab" data-toggle="tab">Rooms</a></li>
@@ -32,28 +37,19 @@
                     <button id="btnBack" aria-activedescendanttype="button" class="btn btn-primary btn-block">Back to list</button>
                 </li>
             </ul>
+            -->
             <pager />
   </div>
 </template>
 
 <script>
-import Pager from '../components/pager.vue'
+import Pager from "../components/pager.vue";
 export default {
-  name: 'MainMenu',
+  name: "MainMenu",
   components: {
     Pager
   }
-}
+};
 </script>
 
-<style>
-nav a {
-  padding: 10px;
-  text-decoration: none;
-  background: #fff;
-  border-radius: 3px;
-  color: rgb(0, 110, 255);
-  font-weight: bold;
-  margin-right: 15px;
-}
-</style>
+
