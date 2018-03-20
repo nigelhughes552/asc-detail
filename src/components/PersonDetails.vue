@@ -1,7 +1,7 @@
 <template>
   <div>
   
-  
+
   
     <b-tabs>
   
@@ -72,7 +72,20 @@
   
       <b-tab title="Other">
   
-        <br>Disabled tab!
+        <div class="card">
+  
+          <div class="card-header">
+  
+            Other
+  
+          </div>
+  
+          <div class="card-body">
+            <strong>Home Page URL: </strong>{{person.HomePageURL}}<br>
+  
+          </div>
+  
+        </div>
   
       </b-tab>
   
@@ -99,7 +112,8 @@ export default {
         Surname: "",
         DisplayName: "",
         DisplayPostnominals: "",
-        Mobile: ""
+        Mobile: "",
+        HomePageURL: ""
       }
     };
   },
@@ -123,6 +137,7 @@ export default {
             this.person.DisplayName = personDetails.DisplayName;
             this.person.DisplayPostnominals = personDetails.DisplayPostnominals;
             this.person.Mobile = personDetails.Mobile;
+            this.person.HomePageURL = personDetails.HomePageURL;
           });
       }
     }
