@@ -4,14 +4,13 @@ import Vue from "vue";
 import App from "./App";
 import router from "./router";
 import "babel-polyfill";
-import vueResource from "vue-resource";
 import BootstrapVue from "bootstrap-vue";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 import "font-awesome/css/font-awesome.css";
-Vue.use(vueResource);
-Vue.use(BootstrapVue);
-Vue.config.productionTip = false;
+
+Vue.use(BootstrapVue)
+Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
@@ -19,4 +18,4 @@ new Vue({
   router,
   components: { App },
   template: "<App/>"
-});
+})

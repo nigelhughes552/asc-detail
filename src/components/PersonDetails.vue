@@ -101,43 +101,30 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "PersonDetails",
 
   data() {
     return {
-      person: {
-        Title: "",
-        Forenames: "",
-        Surname: "",
-        DisplayName: "",
-        DisplayPostnominals: "",
-        Mobile: "",
-        HomePageURL: ""
-      }
+      person: []
     };
   },
 
   created: function() {
-    this.fetchProducts();
+    this.fetchData();
   },
 
   methods: {
-    fetchProducts() {
+    fetchData() {
       {
-        this.$http
-
+        axios
           .get("http://localhost/api/PeopleApi/GetPersonDetails?id=1")
-
           .then(response => {
-            let personDetails = response.body;
-            this.person.Title = personDetails.Title;
-            this.person.Forenames = personDetails.Forenames;
-            this.person.Surname = personDetails.Surname;
-            this.person.DisplayName = personDetails.DisplayName;
-            this.person.DisplayPostnominals = personDetails.DisplayPostnominals;
-            this.person.Mobile = personDetails.Mobile;
-            this.person.HomePageURL = personDetails.HomePageURL;
+            this.person = response.data;
+          })
+          .catch(error => {
+            console.log(error);
           });
       }
     }

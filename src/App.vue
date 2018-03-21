@@ -36,8 +36,13 @@ export default {
 
   components: {
     MainMenu,
-
     PersonCard
   }
 };
 </script>
+<style>
+  
+
+  
+
+</style>
