@@ -3,9 +3,11 @@
   
     <div class="row">
   
-  
-  
+    <div class="col-md-2">
       <MainMenu />
+    </div>
+  
+      
   
       <div class="col-md-10" id="content">
   
@@ -28,7 +30,6 @@
 
 <script>
 import MainMenu from "./components/menu.vue";
-
 import PersonCard from "./components/PersonCard.vue";
 
 export default {
@@ -41,8 +42,5 @@ export default {
 };
 </script>
 <style>
-  
-
-  
 
 </style>

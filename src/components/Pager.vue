@@ -1,15 +1,31 @@
 <template>
-  <nav aria-label="...">
-                <ul class="pager">
-                    <li id="btnPrevious" class="previous"><a href="#"><span aria-hidden="true">&laquo;</span> Previous</a></li>
-                    <li id="btnNext" class="next"><a href="#">Next <span aria-hidden="true">&raquo;</span></a></li>
-                </ul>
-            </nav>
+    <div class="row pager  text-center">
+                <div class="col-md-10 col-md-offset-1">
+                <div class="btn-group center-block">
+                    <button id="btnPrevious" type="button" class="btn btn-default previous">&laquo; Previous</button>
+                    <button id="btnNext" v-on:click="greet" type="button" class="btn btn-default next">Next &raquo;</button>
+                </div>
+</div>
+</div>
              
 </template>
 
 <script>
 export default {
-  name: 'Pager'
-}
+  name: "Pager",
+  methods: {
+    greet: function(event) {
+      // `this` inside methods points to the Vue instance
+      this.$router.push({ path: "Fellowships" });
+    }
+  }
+};
 </script>
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+.pager {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+</style>
+
