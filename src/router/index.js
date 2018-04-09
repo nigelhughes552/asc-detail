@@ -9,7 +9,7 @@ Vue.use(Router);
 export default new Router({
   routes: [
     {
-      path: "/PersonDetails",
+      path: "/PersonDetails/:personId",
       name: "Detail",
       component: PersonDetails
     },

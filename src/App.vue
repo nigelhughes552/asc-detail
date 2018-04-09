@@ -1,30 +1,30 @@
 <template>
   <div class="container-fluid" id="app">
-  
+
     <div class="row">
-  
+
     <div class="col-md-2">
       <MainMenu />
     </div>
-  
-      
-  
+
+
+
       <div class="col-md-10" id="content">
-  
+
         <PersonCard></PersonCard>
-  
-        <router-view/>
-  
-  
-  
+
+        <router-view :key="$route.fullPath"></router-view>
+
+
+
       </div>
-  
-  
-  
+
+
+
     </div>
-  
-  
-  
+
+
+
   </div>
 </template>
 
