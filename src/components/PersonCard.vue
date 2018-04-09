@@ -2,8 +2,8 @@
   <div class="asc-card">
               <img src="/static/img1.png" alt="Dr James Adams" data-hasqtip="119" oldtitle="Dr James Adams" title="" aria-describedby="qtip-119" />
                 <div class="cardcontainer">
-                    <span class="DisplayName">DisplayName</span>
-                    <p>DisplayPostnominals</p>
+                    <span class="DisplayName"></span>
+                    <p>DisplayPostnominals </p>
                 </div>
             </div>
 </template>
