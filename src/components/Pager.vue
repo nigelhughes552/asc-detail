@@ -4,11 +4,11 @@
 <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-center">
     <li class="page-item" v-bind:class="isEnd">
-      <a class="page-link"   v-on:click="previous" >&laquo; Previous</a>
+      <a class="page-link"   v-on:click.prevent="previous" >&laquo; Previous</a>
     </li>
  
     <li class="page-item">
-      <a class="page-link" v-bind:class="isEnd" v-on:click="next" >Next  &raquo;</a>
+      <a class="page-link" v-bind:class="isEnd" v-on:click.prevent="next" >Next  &raquo;</a>
     </li>
   </ul>
 </nav>
@@ -27,7 +27,7 @@ export default {
   name: "Pager",
   data() {
     return {
-      personIds: [1, 100, 30, 201, 32],
+      personIds: [10, 100, 30, 201, 32],
       index: 0
     };
   },
@@ -39,7 +39,7 @@ export default {
     },
     isEnd: function() {
       return {
-        disabled: this.index >= this.personIds.length - 1
+        disabled: this.index >= this.personIds.length
       };
     }
   },
