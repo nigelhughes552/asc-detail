@@ -1,47 +1,30 @@
 <template>
   <div>
-
-
-
     <b-tabs>
-
       <b-tab title="Main" active>
 
-
-
         <div class="card">
-
           <div class="card-header">
-
             Main Details
-
           </div>
 
           <div class="card-body">
-
             <strong>Title: </strong>{{person.Title}}<br>
-
             <strong>Forenames: </strong>{{person.Forenames}}<br>
-
             <strong>Surname: </strong>{{person.Surname}}<br>
-
             <strong>Display Name: </strong>{{person.DisplayName}}<br>
-
+         
+          <img :src="personImage" />
           </div>
-
         </div>
       </b-tab>
 
 
 
       <b-tab title="Postnominals">
-
         <div class="card">
-
           <div class="card-header">
-
             Postnominals
-
           </div>
 
           <div class="card-body"><strong>Display Postnominals: </strong>{{person.DisplayPostnominals}}<br>
@@ -104,26 +87,45 @@
 import axios from "axios";
 export default {
   name: "PersonDetails",
-
   data() {
     return {
-          person: [],
-          personId:this.$route.params.personId
-          }
+      person: [],
+      personId: this.$route.params.personId,
+      personImage: ""
+    };
   },
 
   created: function() {
     this.fetchData();
+    this.fetchImage();
   },
 
   methods: {
     fetchData() {
       {
-        let url="http://localhost/api/PeopleApi/GetPersonDetails?id="+this.personId
-       axios
+        let url =
+          "http://localhost/api/PeopleApi/GetPersonDetails?id=" + this.personId;
+        axios
           .get(url)
           .then(response => {
             this.person = response.data;
+          })
+          .catch(error => {
+            console.log(error);
+          });
+      }
+    },
+    fetchImage() {
+      {
+        let url =
+          "http://localhost/api/peopleapi/GetPersonImage?id=" + this.personId;
+        axios
+          .get(url)
+          .then(response => {
+            this.personImage = response.data;
+            if (this.personImage == "/images/avatar.png") {
+              this.personImage = "/static/avatar.png";
+            }
           })
           .catch(error => {
             console.log(error);

@@ -2,11 +2,12 @@
   <div class="container-fluid" id="app">
     <div class="row">
     <div class="col-md-2">
+         <pager />
       <MainMenu />
     </div>
       <div class="col-md-10" id="content">
- name:{{firstname}}
-        <PersonCard></PersonCard>
+
+        <PersonCard ></PersonCard>
         <router-view :key="$route.fullPath"></router-view>
       </div>
     </div>
@@ -16,16 +17,19 @@
 <script>
 import MainMenu from "./components/menu.vue";
 import PersonCard from "./components/PersonCard.vue";
-
+import Pager from "./components/pager.vue";
 export default {
   name: "App",
-  data () {
+  data() {
     return {
-      firstname: 'Nigel'
-    }},
+      firstname: "Nigel Hughes",
+      person: []
+    };
+  },
   components: {
     MainMenu,
-    PersonCard
+    PersonCard,
+    Pager
   }
 };
 </script>
