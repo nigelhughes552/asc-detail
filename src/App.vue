@@ -1,35 +1,43 @@
 <template>
-  <div class="container-fluid" id="app">
-    <div class="row">
-    <div class="col-md-2">
-         <pager />
-      <MainMenu />
-    </div>
-      <div class="col-md-10" id="content">
 
-        <PersonCard ></PersonCard>
-        <router-view :key="$route.fullPath"></router-view>
-      </div>
-    </div>
-  </div>
+
+  <v-app>
+    <v-navigation-drawer app>
+      <pager></pager>
+      <tree-menu/>
+    </v-navigation-drawer>
+  
+    <v-content>
+      <v-container fluid>
+        <PersonCard></PersonCard>
+        <router-view></router-view>
+      </v-container>
+    </v-content>
+   
+  </v-app>
+
+
 </template>
 
 <script>
 import MainMenu from "./components/menu.vue";
 import PersonCard from "./components/PersonCard.vue";
 import Pager from "./components/pager.vue";
+import TreeMenu from "./components/TreeView.vue";
 export default {
   name: "App",
   data() {
     return {
       firstname: "Nigel Hughes",
-      person: []
+      person: [],
+      personId: 1
     };
   },
   components: {
     MainMenu,
     PersonCard,
-    Pager
+    Pager,
+    TreeMenu
   }
 };
 </script>

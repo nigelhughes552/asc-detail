@@ -1,6 +1,61 @@
 <template>
   <div>
-    <b-tabs>
+
+
+    <img :src="personImage" />
+
+    <v-tabs v-model="active" color="blue-grey lighten-1" dark slider-color="blue">
+      <v-tab ripple>
+        Name
+      </v-tab>
+
+      <v-tab ripple>
+        Contact Information
+      </v-tab>
+      <v-tab ripple>
+        Images
+      </v-tab>
+  <v-tab ripple>
+        Postnominals
+      </v-tab>
+        <v-tab ripple>
+        Files
+      </v-tab>
+        <v-tab ripple>
+        Rights
+      </v-tab>
+
+
+      <v-tab-item>
+        <v-card>
+          <v-card-text>
+            <strong>Title: </strong>{{person.Title}}
+            <br>
+            <strong>Forenames: </strong>{{person.Forenames}}
+            <br>
+            <strong>Surname: </strong>{{person.Surname}}
+            <br>
+            <strong>Display Name: </strong>{{person.DisplayName}}
+            <br>
+          </v-card-text>
+        </v-card>
+      </v-tab-item>
+      <v-tab-item>
+        <v-card>
+          <v-card-text>
+            <img :src="personImage" />
+          </v-card-text>
+        </v-card>
+      </v-tab-item>
+
+    </v-tabs>
+
+
+
+
+
+
+    <!-- <b-tabs>
       <b-tab title="Main" active>
 
         <div class="card">
@@ -78,7 +133,7 @@
 
       </b-tab>
 
-    </b-tabs>
+    </b-tabs> -->
 
   </div>
 </template>
@@ -89,6 +144,9 @@ export default {
   name: "PersonDetails",
   data() {
     return {
+      active: null,
+      text:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       person: [],
       personId: this.$route.params.personId,
       personImage: ""

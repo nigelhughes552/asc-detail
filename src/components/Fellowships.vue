@@ -1,9 +1,30 @@
 <template>
   <div>
 
-    <h4>Fellowships</h4>
+    <span class="title">Fellowships</span>
 
-    <table id="fellowshipTable" class="table table-striped">
+
+
+    <v-data-table :headers="headers" :items="fellowships" hide-actions class="elevation-1">
+      <template slot="items" slot-scope="props">
+        <td>
+          <i v-if="props.item.DisplayOnWebPage" class="fa fa-check" aria-hidden="true"></i>
+        </td>
+        <td>{{ props.item.Fellowship1 }}</td>
+        <td>{{ props.item.ElectionDate }}</td>
+        <td>{{ props.item.StartDate }}</td>
+        <td>{{ props.item.EndDate }}</td>
+        <td>{{ props.item.WebsiteStartDate }}</td>
+        <td>{{ props.item.WebsiteEndDate }}</td>
+      </template>
+      <template slot="no-data">
+        <v-alert :value="true" color="error" icon="warning">
+          Sorry, nothing to display here :(
+        </v-alert>
+      </template>
+    </v-data-table>
+
+    <!-- <table id="fellowshipTable" class="table table-striped">
       <thead>
         <tr>
           <th></th>
@@ -30,7 +51,7 @@
           <td>{{fellow.WebsiteEndDate}}</td>
         </tr>
       </tbody>
-    </table>
+    </table> -->
 
   </div>
 
@@ -43,6 +64,38 @@ export default {
   name: "Fellowships",
   data() {
     return {
+      headers: [
+        {
+          text: "On Web?",
+          sortable: false,
+          value: "DisplayOnWebPage"
+        },
+        {
+          text: "Fellowship",
+          value: "Fellowship1"
+        },
+        {
+          text: "Election Date",
+          value: "StartDate"
+        },
+        {
+          text: "Start Date",
+          value: "StartDate"
+        },
+        {
+          text: "End Date",
+          value: "EndDate"
+        },
+        {
+          text: "Website Start Date",
+          value: "WebsiteStartDate"
+        },
+        {
+          text: "Website End Date",
+          value: "WebsiteEndDate"
+        }
+      ],
+      personId: this.$route.params.personId,
       fellowships: []
     };
   },
@@ -51,12 +104,12 @@ export default {
   },
   methods: {
     fetchData() {
-      let url = "http://localhost/api/PeopleApi/GetFellowshipByPerson/1";
+      let url =
+        "http://localhost/api/PeopleApi/GetFellowshipByPerson/" + this.personId;
       axios
         .get(url)
         .then(response => {
           this.fellowships = response.data;
-          console.log(this.fellowships);
         })
         .catch(error => {
           console.log(error);
